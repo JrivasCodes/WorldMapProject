@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-left: auto;
+}
+
+.form-control{
+    margin-right: 10px;
+}
+
+.navbar-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
