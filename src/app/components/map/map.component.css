@@ -1,0 +1,10 @@
+.svg-img {
+    width: 100%; /* Adjust width as needed */
+    height: 100%; /* Maintain aspect ratio */
+}
+
+.map-container{
+    height: calc(100vh - 60px);
+    display: flex;
+
+}
