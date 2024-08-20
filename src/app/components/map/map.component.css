@@ -12,3 +12,9 @@
 .countryFacts{
     width: 20%;
 }
+
+.regionHover{
+    fill: yellow;
+    stroke: black;
+    stroke-width: 2px;
+}
