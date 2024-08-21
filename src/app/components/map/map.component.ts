@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, output } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -7,25 +7,29 @@ import { Component, Output, EventEmitter, output } from '@angular/core';
   templateUrl: './map.component.html',
   styleUrl: './map.component.css'
 })
-export class MapComponent {
-  @Output() regionSelected = new EventEmitter<{ name: string; id: string }>();
-// private selectedElement: HTMLElement | null = null;
+export class MapComponent implements AfterViewInit {
 
-onRegionMouseEnter(event: MouseEvent) {
-  const target = event.target as SVGPathElement;
+  constructor(private elementRef: ElementRef) {}
 
-  if (target.tagName === 'path') {
-    console.log('Mouse Over Path:', target);
+  ngAfterViewInit(): void {
+    const paths = this.elementRef.nativeElement.querySelectorAll('path');
+    
+    paths.forEach((path: SVGPathElement) => {
+      path.addEventListener('mouseenter', this.onRegionMouseEnter.bind(this));
+      path.addEventListener('mouseleave', this.onRegionMouseLeave.bind(this));
+    });
+  }
+
+  onRegionMouseEnter(event: MouseEvent) {
+    const target = event.target as SVGPathElement;
+    console.log('Mouse Entered Path:', target);
     target.classList.add('regionHover');
   }
-}
 
-  onRegionMouseLeave(event: MouseEvent){
-    const target = event.target as HTMLElement;
-    console.log('Mouse Left:', target);
-    if(target.tagName === 'path'){
-      target.classList.remove('regionHover')
-    }
+  onRegionMouseLeave(event: MouseEvent) {
+    const target = event.target as SVGPathElement;
+    console.log('Mouse Left Path:', target);
+    target.classList.remove('regionHover');
   }
 
   onSvgClick(event: MouseEvent) {
