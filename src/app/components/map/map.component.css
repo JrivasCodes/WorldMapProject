@@ -16,6 +16,12 @@
 path.regionHover{
     fill: lightcoral;
     stroke: black;
-    transition: fill 0.3s ease;
+    /* transition: fill 0.3s ease; */
+    stroke-width: 2px;
+}
+
+path.selectedRegion{
+    fill: red;
+    stroke: black;
     stroke-width: 2px;
 }
