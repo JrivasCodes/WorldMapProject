@@ -22,18 +22,21 @@ export class MapComponent implements AfterViewInit {
     });
   }
 
+  // This is the function for when the mouse enters a country hover effect
   onRegionMouseEnter(event: MouseEvent) {
     const target = event.target as SVGPathElement;
     console.log('Mouse Entered Path:', target);
     target.classList.add('regionHover');
   }
 
+  // This is the function for when the mouse leaves a country hover effect
   onRegionMouseLeave(event: MouseEvent) {
     const target = event.target as SVGPathElement;
     console.log('Mouse Left Path:', target);
     target.classList.remove('regionHover');
   }
 
+  // This is my function for when you click on a country 
   onSvgClick(event: MouseEvent) {
     const target = event.target as SVGPathElement;
 
