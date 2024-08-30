@@ -513,13 +513,13 @@
                   name="Zimbabwe" id="zw" />
       </svg>
       <form class="countryFacts">
-            <h2>Country Data</h2>
+            <h2>{{ countryData?.name }}</h2>
             <ul>
-                  <li>Capital</li>
-                  <li>Region</li>
-                  <li>Income</li>
-                  <li>Longitude</li>
-                  <li>Latitude</li>
+                  <li>{{ countryData?.capitalCity }}</li>
+                  <li>{{ countryData?.region?.value }}</li>
+                  <li>{{ countryData?.incomeLevel?.value }}</li>
+                  <li>{{ countryData?.longitude }}</li>
+                  <li>{{ countryData?.latitude }}</li>
             </ul>
       </form>
 </div>
