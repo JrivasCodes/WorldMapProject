@@ -46,7 +46,6 @@ export class MapComponent implements AfterViewInit {
   onSvgClick(event: MouseEvent) {
     const target = event.target as SVGPathElement;
 
-
     if (target.tagName === 'path'){
       if (this.selectedPath){
         this.selectedPath.classList.remove('selectedRegion')
